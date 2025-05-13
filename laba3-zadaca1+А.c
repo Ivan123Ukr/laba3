@@ -1,28 +1,11 @@
-#include <stdio.h>
-#include <math.h>
+# Задані цілі числа s і t
+s = ...  # Введіть значення
+t = ...  # Введіть значення
 
-int main() {
-    int s, t;
-    double k;
+k = (t**2 + 2 * s**2 * t + s) if s < 4 else ((s + 5) / (-t))**0.5 if s == 4 else 50 + s**2 + t
 
-    printf("Введіть ціле число s: ");
-    scanf("%d", &s);
-    printf("Введіть ціле число t: ");
-    scanf("%d", &t);
-
-    if (s < 4)
-        k = t * t + 2 * s * s * t + s;
-    else if (s == 4) {
-        if (t == 0) {
-            printf("Помилка: ділення на нуль.\n");
-            return 1;
-        } else {
-            k = sqrt((double)(s + 5) / (-t));
-        }
-    } else
-        k = 50 + s * s + t;
-
-    printf("Значення k = %.2f\n", k);
-
-    return 0;
-}
+# Перевіримо, чи результат можна обчислити
+try:
+    print("k =", k)
+except ValueError:
+    print("Неможливо обчислити значення виразу")
